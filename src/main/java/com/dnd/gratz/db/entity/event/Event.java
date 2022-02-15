@@ -1,5 +1,6 @@
 package com.dnd.gratz.db.entity.event;
 
+import com.dnd.gratz.db.entity.BaseEntity;
 import com.dnd.gratz.db.entity.common.Code;
 import com.dnd.gratz.db.entity.message.Message;
 import com.dnd.gratz.db.entity.user.User;
@@ -17,11 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="event", schema="gratz")
-public class Event {
-
-    @Id
-    @Column(name="event_id", length = 13)
-    String eventId;
+public class Event extends BaseEntity {
 
     @JsonBackReference
     @ManyToOne
