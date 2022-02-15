@@ -42,7 +42,7 @@ public class Message extends BaseEntity {
     String imageUrl;
 
     @Column(name="public_yn")
-    int publicYn;
+    boolean publicYn;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="open_date")
