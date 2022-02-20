@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/gratz/**").permitAll()
+                    .antMatchers("/login/oauth2/authorization/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .logout().logoutSuccessUrl("/gratz")
