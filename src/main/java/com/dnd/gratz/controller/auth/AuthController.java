@@ -1,5 +1,6 @@
 package com.dnd.gratz.controller.auth;
 
+import com.dnd.gratz.controller.BaseController;
 import com.dnd.gratz.dto.request.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,11 +11,11 @@ import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
-public class AuthController {
+public class AuthController extends BaseController {
 
     private final HttpSession httpSesion;
 
-    @GetMapping("/gratz")
+    @GetMapping("/")
     public String index(Model model) {
         SessionUser user = (SessionUser) httpSesion.getAttribute("user");
         if (user != null) {
