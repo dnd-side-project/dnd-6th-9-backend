@@ -8,10 +8,12 @@ import com.dnd.gratz.db.entity.message.Message;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -26,10 +28,10 @@ public class User extends BaseEntity {
     @JoinColumn(name="code")
     Code code;
 
-    @Column(name="email", length = 20)
+    @Column(name="email", length = 45)
     String email;
 
-    @Column(name="nick_name", length = 8)
+    @Column(name="nick_name", length = 15)
     String nickName;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -51,4 +53,17 @@ public class User extends BaseEntity {
     @JsonManagedReference
     @OneToMany(mappedBy="user", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     List<Message> message;
+
+    @Builder
+    public User(String email, String nickName) {
+        Date now = new Date();
+        this.email = email;
+        this.nickName = nickName;
+        this.createdDate = now;
+    }
+
+    public User update(String nickName) {
+        this.nickName = nickName;
+        return this;
+    }
 }

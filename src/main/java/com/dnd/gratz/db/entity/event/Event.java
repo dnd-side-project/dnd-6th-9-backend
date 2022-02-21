@@ -7,10 +7,12 @@ import com.dnd.gratz.db.entity.user.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -51,4 +53,13 @@ public class Event extends BaseEntity {
     @JsonManagedReference
     @OneToMany(mappedBy="event", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     List<Message> message;
+
+    @Builder
+    public Event(User user, String eventName, String eventDescription, Date eventDate, Date createdDate) {
+        this.user = user;
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        this.eventDate = eventDate;
+        this.createdDate = createdDate;
+    }
 }
