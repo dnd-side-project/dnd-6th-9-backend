@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
