@@ -21,6 +21,8 @@
 
 ## 👋 백엔드 팀원 소개
 
+<div align="center">
+
 <table>
     <tr align="center">
         <td align="center">
@@ -35,6 +37,21 @@
         </td>
     </tr>
 </table>
+
+</div>
+
+- **공통** : Database 설계 및 API Docs 설계
+- **당현아**
+  - AWS EC2 인스턴스 및 S3, Domain 구축
+  - Backend/Frontend CICD Jenkins 구축
+  - 공통코드(코드시스템), Metadata 설계 및 구현
+  - Database JPA 구현
+  - Message API CRUD 구현
+- **윤영** 
+  - Backend init Project 설계 및 구현
+  - Kakao/Google 2.0 OAuth 구현
+  - User API CRUD 구현
+  - Event API CRUD 구현
 
 <br><br>
 
